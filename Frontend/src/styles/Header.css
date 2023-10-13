@@ -27,7 +27,7 @@ ul li {
 
 .navlist a{
     color: black;
-  
+  cursor: pointer;
       margin-left: 90px;
       font-size: 15px;
       font-weight: 600;

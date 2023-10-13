@@ -9,7 +9,7 @@ CREATE TABLE Clientes (
 
 -- Crear la tabla de Productos con ID autoincremental
 CREATE TABLE Productos (
-    id_producto SERIAL PRIMARY KEY,
+    id_producto int PRIMARY KEY,
     codigo_barras VARCHAR(50),
     nombre_producto VARCHAR(100),
     descripcion VARCHAR(255),
@@ -20,7 +20,7 @@ CREATE TABLE Productos (
 
 -- Crear la tabla de Ventas FALTA ESTA
 CREATE TABLE Ventas (
-    id_venta SERIAL PRIMARY KEY,
+    id_venta int PRIMARY KEY,
     fecha_venta DATE,
     id_cliente INT,
     id_producto INT,
