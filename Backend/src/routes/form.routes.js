@@ -1,14 +1,16 @@
 const { Router } = require("express");
 const {
-  getAllClientes
+  createFile
 } = require("../controllers/tasks.controller");
+const multer = require("multer")
+const storage = multer.memoryStorage();
 
 const router = Router();
 
+const configuracionMulter = multer({storage}).single("file");
 
-// ofertantes
-router.get("/clientes", getAllClientes);
-
+// clientes
+router.post("/clientes",configuracionMulter, createFile);
 
 
 
