@@ -2,7 +2,8 @@ const { Router } = require("express");
 const {
   createFile,
   getTotalVentas,
-  getTotalUnidades
+  getTotalUnidades,
+  getMarcas
 } = require("../controllers/tasks.controller");
 const multer = require("multer")
 const storage = multer.memoryStorage();
@@ -15,6 +16,7 @@ const configuracionMulter = multer({storage}).single("file");
 router.post("/clientes",configuracionMulter, createFile);
 router.get("/totalVentas", getTotalVentas)
 router.get("/totalUnidades",getTotalUnidades)
+router.get("/Marcas",getMarcas)
 
 
 module.exports = router;

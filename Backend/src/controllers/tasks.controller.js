@@ -112,10 +112,22 @@ const getTotalUnidades = (req, res) => {
 };
 
 
+const getMarcas = (req,res) => {
+    const response = "SELECT fecha_venta,total_venta from Ventas ";
+  poMySql.query(response, (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json(err);
+    }
+    return res.json(data);
+  });
+};
+
 module.exports = {
   createFile,
   getTotalVentas,
-  getTotalUnidades
+  getTotalUnidades,
+  getMarcas
 };
 
 
