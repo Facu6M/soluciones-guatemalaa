@@ -1,0 +1,39 @@
+header{
+    /* position: fixed; */
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1px 9%;
+        background-color: rgb(91, 91, 97);
+}
+
+.logo{
+    height: 100px;
+    width: 270px;
+}
+
+.navlist{
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.navlist a{
+    color: black;
+  
+      margin-left: 90px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all .55s ease;
+  }
+
+.navlist a:hover{
+    border-bottom: 2px solid white;
+}
