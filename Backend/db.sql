@@ -22,11 +22,9 @@ CREATE TABLE Productos (
 CREATE TABLE Ventas (
     id_venta SERIAL PRIMARY KEY,
     fecha_venta DATE,
-    id_cliente INT,
-    id_producto INT,
+    id_cliente varchar(255),
+    id_producto varchar(255),
     cantidad INT,
-    total_venta DECIMAL(10, 2),
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
-    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
+    total_venta DECIMAL(10, 2)
 )
 

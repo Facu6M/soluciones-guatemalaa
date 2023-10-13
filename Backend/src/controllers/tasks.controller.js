@@ -40,43 +40,46 @@ const createFile = async (req, res) => {
     let info = new Date(Date.UTC(0, 0, excelSerialDate));
   })
 
-  const clientes = 
-  datos.map(e => 
-    {
-    return { 
-    nombre: e.nombre,
-    apellido: e.apellido,
-    correo_electronico: e.correo_electronico 
-  }
-  })
+  // const clientes = 
+  // datos.map(e => 
+  //   {
+  //   return { 
+  //   nombre: e.nombre,
+  //   apellido: e.apellido,
+  //   correo_electronico: e.correo_electronico 
+  // }
+  // })
 
-  await pool.batchInsert('Clientes',clientes, 50)
+  // await pool.batchInsert('Clientes',clientes, 50)
 
-  const productos = 
-  datos.map(e => {
-    return {
-      codigo_barras: e.codigo_barras ,
-      nombre_producto: e.nombre_producto ,
-      descripcion: e.descripcion,
-      categoria: e.categoria,
-      precio: e.precio
-    }
-  })
+  // const productos = 
+  // datos.map(e => {
+  //   return {
+  //     codigo_barras: e.codigo_barras ,
+  //     nombre_producto: e.nombre_producto ,
+  //     descripcion: e.descripcion,
+  //     categoria: e.categoria,
+  //     precio: e.precio
+  //   }
+  // })
   
-  await pool.batchInsert('Productos',productos, 50)
+  // await pool.batchInsert('Productos',productos, 50)
 
   const ventas = 
   datos.map(e => {
+    // pasar de excel a venta
+    let excelSerialDate = e.fecha_venta
+    let info = new Date(Date.UTC(0, 0, excelSerialDate));
     return {
-      codigo_barras: e.codigo_barras ,
-      nombre_producto: e.nombre_producto ,
-      descripcion: e.descripcion,
-      categoria: e.categoria,
-      precio: e.precio
+      fecha_venta: info,
+      id_cliente: e.nombre + e.apellido ,
+      id_producto: e.nombre_producto,
+      cantidad: e.cantidad,
+      total_venta:e.total_venta
     }
   })
   
-  await pool.batchInsert('Productos',ventas, 50)
+  await pool.batchInsert('Ventas',ventas, 50)
 
 
    
@@ -87,7 +90,7 @@ const createFile = async (req, res) => {
 
 // obtener el total de ventas
 const getTotalVentas = (req, res) => {
-  const response = "SELECT total_venta FROM Ventas";
+  const response = "SELECT SUM(total_venta) as suma from Ventas";
   poMySql.query(response, (err, data) => {
     if (err) {
       console.log(err);
@@ -98,7 +101,7 @@ const getTotalVentas = (req, res) => {
 };
 
 const getTotalUnidades = (req, res) => {
-  const response = "SELECT cantidad FROM Ventas";
+  const response = "SELECT SUM(cantidad) as suma from Ventas";
   poMySql.query(response, (err, data) => {
     if (err) {
       console.log(err);

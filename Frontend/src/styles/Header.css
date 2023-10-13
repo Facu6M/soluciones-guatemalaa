@@ -8,7 +8,7 @@ header{
     align-items: center;
     justify-content: space-around;
     padding: 1px 9%;
-        background-color: rgb(91, 91, 97);
+        background-color: rgb(0, 0, 0);
 }
 
 .logo{
@@ -26,7 +26,7 @@ ul li {
 }
 
 .navlist a{
-    color: black;
+    color: rgb(255, 255, 255);
   cursor: pointer;
       margin-left: 90px;
       font-size: 15px;

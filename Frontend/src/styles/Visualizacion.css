@@ -1,0 +1,44 @@
+
+
+.heading-1{
+text-align: center;
+padding-top: 50px;
+}
+
+.blogs {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+    text-align: center;
+}
+
+.container-blogs {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 5rem;
+}
+
+.card-blog {
+	
+	background-color: rgb(254, 245, 226);
+border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    height: 100px;
+}
+
+.card-blog .container-img {
+	border-radius: 2rem;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.container-img img{
+	height: 250px;
+	width: 300px;
+	border-radius: 20px;
+	padding-top: 20px;
+}
